@@ -1,0 +1,58 @@
+import random
+import webbrowser
+
+def main():
+    print("Welcome to the Dinner Decision Game!")
+    print("Let's figure out what you should eat tonight.")
+
+    # Step 1: Choose Cuisine
+    cuisines = ["Italian", "Chinese", "Mexican", "Indian", "American", "Japanese", "Mediterranean"]
+    print("\nStep 1: What type of cuisine are you in the mood for?")
+    for i, cuisine in enumerate(cuisines, 1):
+        print(f"{i}. {cuisine}")
+    
+    cuisine_choice = get_choice(len(cuisines))
+    chosen_cuisine = cuisines[cuisine_choice - 1]
+
+    # Step 2: Meal Type
+    meal_types = ["Comfort food", "Healthy option", "Something quick", "Something fancy"]
+    print("\nStep 2: What type of meal are you looking for?")
+    for i, meal_type in enumerate(meal_types, 1):
+        print(f"{i}. {meal_type}")
+
+    meal_type_choice = get_choice(len(meal_types))
+    chosen_meal_type = meal_types[meal_type_choice - 1]
+
+    # Step 3: Budget
+    budgets = ["Cheap", "Moderate", "Expensive"]
+    print("\nStep 3: What's your budget?")
+    for i, budget in enumerate(budgets, 1):
+        print(f"{i}. {budget}")
+
+    budget_choice = get_choice(len(budgets))
+    chosen_budget = budgets[budget_choice - 1]
+
+    # Open Google Maps
+    open_google_maps(chosen_cuisine)
+
+    print("\nEnjoy your meal!")
+
+def get_choice(options_count):
+    while True:
+        try:
+            choice = int(input("Enter the number of your choice: "))
+            if 1 <= choice <= options_count:
+                return choice
+            else:
+                print(f"Please enter a number between 1 and {options_count}.")
+        except ValueError:
+            print("That's not a valid number. Try again.")
+
+def open_google_maps(cuisine):
+    print(f"\nSearching for {cuisine} restaurants near you...")
+    query = f"{cuisine} restaurants near me"
+    url = f"https://www.google.com/maps/search/{query.replace(' ', '+')}"
+    webbrowser.open(url)
+
+if __name__ == "__main__":
+    main()
