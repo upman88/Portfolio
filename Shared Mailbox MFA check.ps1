@@ -1,5 +1,5 @@
 # Connect to Exchange Online PowerShell
-Connect-ExchangeOnline -UserPrincipalName pupman@authoritybrandsllc.com
+Connect-ExchangeOnline -UserPrincipalName patrick@example.com
 
 # Connect to MS Online Service
 Connect-MsolService
