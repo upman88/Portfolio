@@ -1,5 +1,5 @@
 # Connect to Exchange Online
-Connect-ExchangeOnline -UserPrincipalName pupman@authoritybrandsllc.com
+Connect-ExchangeOnline -UserPrincipalName patrick@example.com
 
 # Get all quarantined messages for all users
 $quarantinedEmails = Get-QuarantineMessage -PageSize 1000
